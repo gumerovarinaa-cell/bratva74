@@ -1,0 +1,1621 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>BRATVA • ресторан & бар — Челябинск</title>
+  <meta name="description" content="BRATVA — ресторан и бар в Челябинске. Авторская кухня, стейки, паста, морепродукты и большая барная карта. Онлайн-бронь столов в 2 клика. Адрес: Братьев Кашириных, 111." />
+  <meta name="keywords" content="ресторан Челябинск, бар Челябинск, бронь стола, стейки, коктейли, Братьев Кашириных 111" />
+  <meta name="theme-color" content="#0b0f1a"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="BRATVA • ресторан & бар — Челябинск" />
+  <meta property="og:description" content="Авторская кухня и барная карта. Онлайн-бронь столов. Братьев Кашириных, 111." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1400&q=80" />
+
+  <!-- Favicon (SVG data URI) -->
+  <link rel="icon" href='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Cpath fill="%23ffcc66" d="M10 46c7 8 20 12 35 9 6-1 9-5 9-10 0-4-2-8-6-11-5-4-12-6-21-6-8 0-14 2-17 5-4 3-4 9 0 13z"/%3E%3Cpath fill="%230b0f1a" d="M17 28c2-9 8-15 18-15 12 0 20 9 20 20 0 5-2 9-5 12 2-12-7-20-18-20-6 0-12 2-15 3z"/%3E%3C/svg%3E' />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "BRATVA • ресторан & бар",
+    "description": "Авторская кухня и барная карта. Онлайн-бронь столов.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Братьев Кашириных, 111",
+      "addressLocality": "Челябинск",
+      "addressCountry": "RU"
+    },
+    "servesCuisine": ["European", "Italian", "Steakhouse", "Cocktails"],
+    "telephone": "+7 (351) 555-11-11",
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "12:00", "closes": "23:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday"], "opens": "12:00", "closes": "01:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "13:00", "closes": "01:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday"], "opens": "13:00", "closes": "23:00" }
+    ],
+    "image": [
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1541544181074-e4dfbd1f0cbe?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1400&q=80"
+    ],
+    "menu": "https://example.com/menu"
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#070a12;
+      --bg2:#0b0f1a;
+      --card:#0f1526cc;
+      --text:#e9edf7;
+      --muted:#a7b0c7;
+      --gold:#ffcc66;
+      --gold2:#ffb84a;
+      --line:#1e2742;
+      --ok:#4ee59b;
+      --danger:#ff5a7a;
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1180px;
+      --blur: blur(14px);
+      --ease: cubic-bezier(.2,.9,.2,1);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 600px at 20% -10%, rgba(255,204,102,.18), transparent 60%),
+        radial-gradient(900px 700px at 95% 10%, rgba(111,231,255,.14), transparent 55%),
+        radial-gradient(900px 650px at 30% 110%, rgba(255,102,153,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+    button, input, select, textarea{ font:inherit; }
+    .container{ width:min(var(--max), 92vw); margin:0 auto; }
+
+    /* Top nav */
+    .nav{
+      position:fixed; left:0; right:0; top:0;
+      z-index:50;
+      backdrop-filter: var(--blur);
+      background: rgba(7,10,18,.55);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width: 220px;
+    }
+    .logo{
+      width:36px; height:36px;
+      border-radius:12px;
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,204,102,.9), rgba(255,204,102,.2)),
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      box-shadow: 0 10px 30px rgba(255,204,102,.15);
+      display:grid; place-items:center;
+      border:1px solid rgba(255,204,102,.25);
+    }
+    .logo svg{ width:20px; height:20px; }
+    .brand strong{
+      font-family: "Playfair Display", serif;
+      letter-spacing:.6px;
+      font-weight:700;
+      font-size:16px;
+      line-height:1.1;
+    }
+    .brand span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      margin-top:2px;
+      letter-spacing:.2px;
+    }
+
+    .nav-links{
+      display:flex; align-items:center; gap:16px;
+    }
+    .nav-links a{
+      color: var(--muted);
+      font-size:14px;
+      padding:10px 10px;
+      border-radius:12px;
+      transition: all .25s var(--ease);
+    }
+    .nav-links a:hover{ color:var(--text); background: rgba(255,255,255,.06); }
+
+    .nav-cta{
+      display:flex; align-items:center; gap:10px;
+      min-width: 220px;
+      justify-content:flex-end;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      transition: all .25s var(--ease);
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .pill:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); }
+    .pill.primary{
+      border-color: rgba(255,204,102,.35);
+      background: linear-gradient(180deg, rgba(255,204,102,.22), rgba(255,204,102,.10));
+      box-shadow: 0 18px 50px rgba(255,204,102,.12);
+    }
+    .pill.primary:hover{ transform: translateY(-1px) scale(1.01); }
+    .pill svg{ width:16px; height:16px; opacity:.9; }
+
+    /* Mobile menu */
+    .burger{ display:none; }
+    .mobile-panel{
+      display:none;
+      padding: 10px 0 16px;
+    }
+    .mobile-panel a{
+      display:block;
+      padding:12px 12px;
+      border-radius:14px;
+      color: var(--muted);
+      border:1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.04);
+      margin-top:10px;
+    }
+    .mobile-panel a:hover{ color:var(--text); background: rgba(255,255,255,.06); }
+
+    /* Hero */
+    .hero{
+      padding-top: 92px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 26px;
+      align-items:stretch;
+      padding: 26px 0 18px;
+    }
+    .hero-left{
+      border-radius: var(--radius2);
+      padding: 26px;
+      background:
+        radial-gradient(900px 450px at 10% 0%, rgba(255,204,102,.18), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      min-height: 520px;
+    }
+    .hero-left::after{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(420px 260px at 92% 20%, rgba(111,231,255,.13), transparent 60%),
+        radial-gradient(420px 260px at 70% 110%, rgba(255,102,153,.10), transparent 65%);
+      pointer-events:none;
+    }
+
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .25px;
+      padding: 8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      position:relative; z-index:1;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:99px;
+      background: var(--ok);
+      box-shadow: 0 0 0 6px rgba(78,229,155,.12);
+    }
+    h1{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.05;
+      margin: 16px 0 12px;
+      position:relative; z-index:1;
+      letter-spacing:.2px;
+    }
+    .sub{
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      max-width: 52ch;
+      position:relative; z-index:1;
+    }
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap: 12px;
+      margin-top: 18px;
+      position:relative; z-index:1;
+    }
+    .hero-actions .pill{ padding: 12px 14px; }
+    .hero-actions .pill.secondary{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      color: var(--text);
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+      position:relative; z-index:1;
+    }
+    .stat{
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(15,21,38,.45);
+      backdrop-filter: var(--blur);
+    }
+    .stat strong{
+      display:block;
+      font-size: 16px;
+      letter-spacing:.2px;
+    }
+    .stat span{
+      display:block;
+      color:var(--muted);
+      font-size: 12px;
+      margin-top: 6px;
+      line-height:1.25;
+    }
+
+    .hero-right{
+      border-radius: var(--radius2);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+      background: rgba(255,255,255,.02);
+      position:relative;
+      min-height: 520px;
+    }
+    .mosaic{
+      position:absolute; inset:0;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1.2fr .8fr;
+      gap: 10px;
+      padding: 10px;
+    }
+    .tile{
+      border-radius: 18px;
+      overflow:hidden;
+      position:relative;
+      border:1px solid rgba(255,255,255,.06);
+      background: rgba(255,255,255,.03);
+    }
+    .tile img{
+      width:100%; height:100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .tile.big{ grid-row: 1 / span 2; }
+    .tile::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.55));
+      pointer-events:none;
+    }
+    .badge{
+      position:absolute;
+      left:14px; bottom:14px;
+      padding:10px 12px;
+      border-radius: 14px;
+      background: rgba(7,10,18,.62);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter: var(--blur);
+      max-width: 80%;
+    }
+    .badge strong{ display:block; font-size: 14px; }
+    .badge span{ display:block; font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    /* Section base */
+    section{
+      padding: 54px 0;
+      position:relative;
+    }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .section-head h2{
+      margin:0;
+      font-family:"Playfair Display", serif;
+      font-size: clamp(26px, 2.6vw, 38px);
+      letter-spacing:.2px;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      max-width: 60ch;
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    /* Cards */
+    .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .grid-2{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .card{
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 14px 50px rgba(0,0,0,.35);
+      overflow:hidden;
+      position:relative;
+    }
+    .card.pad{ padding: 18px; }
+    .card .muted{ color: var(--muted); }
+
+    /* Features */
+    .feature{
+      padding: 18px;
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      min-height: 120px;
+    }
+    .ico{
+      width:42px; height:42px; border-radius:14px;
+      display:grid; place-items:center;
+      border:1px solid rgba(255,204,102,.24);
+      background: linear-gradient(180deg, rgba(255,204,102,.18), rgba(255,204,102,.06));
+      box-shadow: 0 18px 50px rgba(255,204,102,.08);
+      flex: 0 0 auto;
+    }
+    .feature h3{ margin:2px 0 6px; font-size: 15px; }
+    .feature p{ margin:0; color: var(--muted); line-height:1.55; font-size: 13px; }
+
+    /* About */
+    .about{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items:stretch;
+    }
+    .about .photo{
+      position:relative;
+      height: 100%;
+      min-height: 420px;
+    }
+    .about .photo img{
+      width:100%; height:100%;
+      object-fit:cover;
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .about .photo::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(90deg, rgba(7,10,18,.85), transparent 65%);
+      pointer-events:none;
+    }
+    .about .photo .overlay{
+      position:absolute;
+      left:18px; bottom:18px;
+      right:18px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(7,10,18,.62);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter: var(--blur);
+    }
+    .about ul{
+      margin: 12px 0 0;
+      padding: 0 0 0 18px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+    .about ul li{ margin: 6px 0; }
+    .chips{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 14px;
+    }
+    .chip{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Menus */
+    .tabs{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .tab{
+      padding:10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      color: var(--muted);
+      cursor:pointer;
+      transition: all .2s var(--ease);
+      user-select:none;
+    }
+    .tab.active{
+      color: var(--text);
+      border-color: rgba(255,204,102,.35);
+      background: linear-gradient(180deg, rgba(255,204,102,.18), rgba(255,204,102,.06));
+      box-shadow: 0 16px 40px rgba(255,204,102,.10);
+    }
+    .menu-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .item{
+      padding: 16px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(15,21,38,.40);
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+    }
+    .thumb{
+      width: 74px;
+      height: 74px;
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      flex: 0 0 auto;
+      background: rgba(255,255,255,.04);
+    }
+    .thumb img{ width:100%; height:100%; object-fit:cover; }
+    .item h4{ margin:0; font-size: 14px; letter-spacing:.2px; }
+    .item p{ margin:6px 0 0; color: var(--muted); font-size: 13px; line-height:1.5; }
+    .meta{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .price{
+      margin-left:auto;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing:.2px;
+      white-space:nowrap;
+    }
+    .tag{
+      padding: 4px 8px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 10px;
+    }
+    .g{
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      position:relative;
+      min-height: 140px;
+    }
+    .g img{ width:100%; height:100%; object-fit:cover; transform: scale(1.03); }
+    .g::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,.58));
+      opacity:.9;
+      pointer-events:none;
+    }
+    .g1{ grid-column: span 5; min-height: 260px; }
+    .g2{ grid-column: span 4; min-height: 260px; }
+    .g3{ grid-column: span 3; min-height: 260px; }
+    .g4{ grid-column: span 4; }
+    .g5{ grid-column: span 4; }
+    .g6{ grid-column: span 4; }
+
+    /* Reservation */
+    .reserve{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items:stretch;
+    }
+    .form{
+      padding: 18px;
+    }
+    .fields{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .field{ display:flex; flex-direction:column; gap: 8px; }
+    label{ color: var(--muted); font-size: 12px; }
+    input, select, textarea{
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      outline:none;
+      transition: border-color .2s var(--ease), background .2s var(--ease);
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(255,204,102,.35);
+      background: rgba(255,255,255,.07);
+    }
+    textarea{ min-height: 110px; resize: vertical; grid-column: 1 / -1; }
+
+    .form-actions{
+      display:flex; gap: 10px; flex-wrap:wrap;
+      margin-top: 12px;
+    }
+    .btn{
+      border:none;
+      border-radius: 999px;
+      padding: 12px 14px;
+      cursor:pointer;
+      display:inline-flex; align-items:center; gap: 10px;
+      transition: transform .2s var(--ease), filter .2s var(--ease), background .2s var(--ease);
+      user-select:none;
+    }
+    .btn.primary{
+      color:#0b0f1a;
+      background: linear-gradient(180deg, var(--gold), var(--gold2));
+      box-shadow: 0 18px 50px rgba(255,204,102,.14);
+    }
+    .btn.primary:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+    .btn.ghost{
+      color: var(--text);
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .btn.ghost:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
+    .note{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .status{
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(15,21,38,.40);
+      color: var(--muted);
+      display:none;
+    }
+    .status.ok{ border-color: rgba(78,229,155,.28); color: rgba(210,255,236,.92); }
+    .status.err{ border-color: rgba(255,90,122,.30); color: rgba(255,225,232,.92); }
+
+    /* Map */
+    .map-wrap{
+      padding: 0;
+      overflow:hidden;
+    }
+    .map-head{
+      padding: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+    }
+    .map-switch{
+      display:flex; gap: 10px; flex-wrap:wrap;
+    }
+    .map{
+      width:100%;
+      height: 420px;
+      border:0;
+      display:block;
+      filter: saturate(1.05) contrast(1.05);
+    }
+
+    /* Footer */
+    footer{
+      padding: 42px 0 60px;
+      border-top:1px solid rgba(255,255,255,.06);
+      background: rgba(0,0,0,.18);
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      align-items:start;
+    }
+    .fine{
+      color: var(--muted);
+      font-size: 12px;
+      line-height:1.6;
+    }
+    .contacts{
+      display:grid;
+      gap: 10px;
+      justify-items:end;
+    }
+    .contacts .pill{ justify-content:center; }
+
+    /* Helpers */
+    .sep{ height:1px; background: rgba(255,255,255,.06); margin: 16px 0; }
+    .hide{ display:none !important; }
+    .anchor{ scroll-margin-top: 96px; }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-right{ min-height: 420px; }
+      .hero-left{ min-height: unset; }
+      .about{ grid-template-columns: 1fr; }
+      .about .photo{ min-height: 340px; }
+      .menu-grid{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .reserve{ grid-template-columns: 1fr; }
+      .footer-grid{ grid-template-columns: 1fr; }
+      .contacts{ justify-items:start; }
+      .gallery{ grid-template-columns: repeat(6, 1fr); }
+      .g1{ grid-column: span 6; }
+      .g2{ grid-column: span 3; }
+      .g3{ grid-column: span 3; }
+      .g4,.g5,.g6{ grid-column: span 6; }
+      .nav-links{ display:none; }
+      .burger{ display:inline-flex; }
+      .mobile-panel{ display:none; }
+    }
+    @media (max-width: 520px){
+      .fields{ grid-template-columns: 1fr; }
+      .hero-stats{ grid-template-columns: 1fr; }
+      .brand{ min-width: unset; }
+      .nav-cta{ min-width: unset; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="BRATVA — на главную">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 19c2.4 2.7 7 4 12.3 3.1 2.1-.4 3.7-2 3.7-4.2 0-1.8-.8-3.5-2.5-4.8-2.1-1.6-5.1-2.6-8.8-2.6-3.4 0-5.8.7-7.2 1.7-1.6 1.2-1.7 4.1 0 6.8Z" fill="#ffcc66" opacity=".95"/>
+              <path d="M8.2 10.4C9 6.7 11.8 4 16.3 4 21 4 24 7.6 24 12.2c0 2.2-.8 4-2 5.2.3-5-3.3-8-7.8-8-2.7 0-5.1.7-6.3 1Z" fill="#0b0f1a" opacity=".9"/>
+            </svg>
+          </div>
+          <div>
+            <strong>BRATVA</strong>
+            <span>ресторан & бар • Челябинск</span>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Навигация">
+          <a href="#about">О нас</a>
+          <a href="#menu">Меню</a>
+          <a href="#bar">Бар</a>
+          <a href="#gallery">Фото</a>
+          <a href="#reserve">Бронь</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+
+        <div class="nav-cta">
+          <button class="pill burger" id="burgerBtn" aria-label="Открыть меню">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            Меню
+          </button>
+          <a class="pill" href="tel:+73515551111" title="Позвонить">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.7c1.7 3.2 3.9 5.5 7.1 7.1l2.4-2.4c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.8 22 2 13.2 2 2c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.2 1.1L6.6 10.7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            +7 (351) 555-11-11
+          </a>
+          <a class="pill primary" href="#reserve">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 3v3M17 3v3M4 8h16M6 12h4m-4 4h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            Забронировать
+          </a>
+        </div>
+      </div>
+
+      <div class="mobile-panel" id="mobilePanel">
+        <a href="#about">О нас</a>
+        <a href="#menu">Меню</a>
+        <a href="#bar">Бар</a>
+        <a href="#gallery">Фото</a>
+        <a href="#reserve">Бронь</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="kicker"><span class="dot"></span> Свежая кухня • барная классика • уютный свет</div>
+          <h1>Ресторан, в который возвращаются.<br/>Вкусно. Стильно. По-делу.</h1>
+          <p class="sub">
+            <b>BRATVA</b> — авторская кухня и бар с характером в центре Челябинска.
+            Стейки, паста, морепродукты, закуски к вину и коктейли, которые хочется фотографировать.
+          </p>
+
+          <div class="hero-actions">
+            <a class="pill primary" href="#reserve">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 8h10M7 12h10M7 16h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 4h16v16H7l-3 3V4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+              Онлайн-бронь в Telegram
+            </a>
+            <a class="pill secondary" href="#menu">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Смотреть меню
+            </a>
+            <a class="pill secondary" href="#bar">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 2h10v4a5 5 0 0 1-10 0V2Z" stroke="currentColor" stroke-width="2"/><path d="M12 11v9m-4 0h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Барная карта
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>12:00–23:00</strong>
+              <span>будни • до 01:00 в пт/сб</span>
+            </div>
+            <div class="stat">
+              <strong>Средний чек 1600–2300 ₽</strong>
+              <span>сытно и честно по порциям</span>
+            </div>
+            <div class="stat">
+              <strong>Бронирование за 30 секунд</strong>
+              <span>заявка улетает в Telegram</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right" aria-label="Фотоколлаж ресторана">
+          <div class="mosaic">
+            <div class="tile big">
+              <img alt="Интерьер ресторана" loading="lazy"
+                src="https://i.pinimg.com/736x/de/20/ef/de20ef2ebf475ed62e65d441e0dd9146.jpg">
+              <div class="badge">
+                <strong>Уютный зал + бар</strong>
+                <span>теплый свет • приватность • музыка</span>
+              </div>
+            </div>
+            <div class="tile">
+              <img alt="Коктейль" loading="lazy"
+                src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1200&q=80">
+              <div class="badge">
+                <strong>Коктейли</strong>
+                <span>классика + авторские твисты</span>
+              </div>
+            </div>
+            <div class="tile">
+              <img alt="Стейк" loading="lazy"
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=80">
+              <div class="badge">
+                <strong>Стейки</strong>
+                <span>правильная прожарка</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURES -->
+      <section aria-label="Преимущества">
+        <div class="section-head">
+          <h2>Почему BRATVA продаёт сама себя</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="feature">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M12 4v16" stroke="#ffcc66" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <h3>Кухня с характером</h3>
+                <p>Европейская база + авторские акценты. Порции, после которых довольны и мужчины, и девушки.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="feature">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M7 2h10v4a5 5 0 0 1-10 0V2Z" stroke="#ffcc66" stroke-width="2"/><path d="M12 11v9m-4 0h8" stroke="#ffcc66" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <h3>Барная карта</h3>
+                <p>От игристого до выдержанных виски. Коктейли с идеальным балансом — не сахар, а вкус.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="feature">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 21V8l8-5 8 5v13" stroke="#ffcc66" stroke-width="2" stroke-linecap="round"/><path d="M9 21v-6h6v6" stroke="#ffcc66" stroke-width="2"/></svg>
+              </div>
+              <div>
+                <h3>Локация удобная</h3>
+                <p>Челябинск, Братьев Кашириных, 111 — легко доехать, есть парковка рядом и приятный вход.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="anchor">
+    <div class="container">
+      <div class="section-head">
+        <h2>О нас</h2>
+        <p>Мы делаем «дорого выглядит — нормально стоит». Уютный ресторан, где одинаково хорошо и на свидании, и на деловой встрече.</p>
+      </div>
+
+      <div class="about">
+        <div class="card pad">
+          <p class="muted" style="margin-top:0; line-height:1.65;">
+            BRATVA — это про атмосферу. Бар дышит, кухня работает точно, официанты знают меню, а музыка не мешает разговорам.
+            Мы любим понятные вкусы, но подаём их современно: соус — не для вида, а чтобы выдохнуть «вау».
+          </p>
+
+          <div class="sep"></div>
+
+          <ul>
+            <li><b>Тёплый интерьер</b> с мягким светом и правильной посадкой.</li>
+            <li><b>Кухня на открытой отдаче</b>: скорость + стабильность вкуса.</li>
+            <li><b>Бар с дисциплиной</b>: граммы, лед, баланс, температура — всё важно.</li>
+            <li><b>Сервис без пафоса</b>: дружелюбно и по делу.</li>
+          </ul>
+
+          <div class="chips">
+            <div class="chip">Стейки & гриль</div>
+            <div class="chip">Паста & ризотто</div>
+            <div class="chip">Морепродукты</div>
+            <div class="chip">Коктейль-бар</div>
+            <div class="chip">Вино по бокалам</div>
+          </div>
+        </div>
+
+        <div class="card photo">
+          <img alt="Интерьер зала" loading="lazy"
+               src="https://i.pinimg.com/736x/b0/b5/bd/b0b5bd6c541c37461feb6e873ad6c577.jpg">
+          <div class="overlay">
+            <strong style="display:block; font-size:15px;">Фирменная атмосфера</strong>
+            <span class="muted" style="display:block; margin-top:6px; font-size:13px; line-height:1.5;">
+              Ламповый свет • приватные столы • комфортные кресла • стильный бар
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="anchor">
+    <div class="container">
+      <div class="section-head">
+        <h2>Меню</h2>
+        
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Категории меню">
+        <div class="tab active" data-menu="starters" role="tab" aria-selected="true">Закуски</div>
+        <div class="tab" data-menu="salads" role="tab" aria-selected="false">Салаты</div>
+        <div class="tab" data-menu="hot" role="tab" aria-selected="false">Горячее</div>
+        <div class="tab" data-menu="grill" role="tab" aria-selected="false">Гриль</div>
+        <div class="tab" data-menu="pasta" role="tab" aria-selected="false">Паста</div>
+        <div class="tab" data-menu="dessert" role="tab" aria-selected="false">Десерты</div>
+      </div>
+
+      <div class="menu-grid" id="menuGrid"></div>
+
+    
+    </div>
+  </section>
+
+  <!-- BAR -->
+  <section id="bar" class="anchor">
+    <div class="container">
+      <div class="section-head">
+        <h2>Барная карта</h2>
+        
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Категории бара">
+        <div class="tab active" data-bar="signature" role="tab" aria-selected="true">Авторские</div>
+        <div class="tab" data-bar="classic" role="tab" aria-selected="false">Классика</div>
+        <div class="tab" data-bar="wine" role="tab" aria-selected="false">Вино</div>
+        <div class="tab" data-bar="strong" role="tab" aria-selected="false">Крепкое</div>
+        <div class="tab" data-bar="na" role="tab" aria-selected="false">Безалк.</div>
+      </div>
+
+      <div class="menu-grid" id="barGrid"></div>
+
+      <div class="sep"></div>
+
+      <div class="grid-2">
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">Что рекомендуем сегодня</h3>
+          <p class="muted" style="margin:0; line-height:1.65;">
+            <b>1)</b> BRATVA Negroni — плотный, цитрус, травы.<br/>
+            <b>2)</b> Bloody Smoke — томат, специи, дымная нота.<br/>
+            <b>3)</b> Apple Highball — чисто, свежо, идеально к стейку.
+          </p>
+        </div>
+        <div class="card pad">
+          <h3 style="margin:0 0 8px;">Подача и лёд — не мелочь</h3>
+          <p class="muted" style="margin:0; line-height:1.65;">
+            Мы используем крупный лёд, правильное охлаждение бокала и точную меру.
+            Так коктейль держит вкус до последнего глотка — и это ощущается.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="anchor">
+    <div class="container">
+      <div class="section-head">
+        <h2>Фотогалерея</h2>
+        
+      </div>
+
+      <div class="gallery" aria-label="Галерея фотографий">
+        <div class="g g1"><img alt="Интерьер" loading="lazy" src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1400&q=80"></div>
+        <div class="g g2"><img alt="Паста" loading="lazy" src="https://i.pinimg.com/1200x/9a/6c/d9/9a6cd94abebb6c0bd88c64178af52353.jpg"></div>
+        <div class="g g3"><img alt="Десерт" loading="lazy" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1400&q=80"></div>
+        <div class="g g4"><img alt="Коктейль" loading="lazy" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1400&q=80"></div>
+        <div class="g g5"><img alt="Стейк" loading="lazy" src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1400&q=80"></div>
+        <div class="g g6"><img alt="Сервировка" loading="lazy" src="https://images.unsplash.com/photo-1525268323446-0505b6fe7778?auto=format&fit=crop&w=1400&q=80"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVE -->
+  <section id="reserve" class="anchor">
+    <div class="container">
+      <div class="section-head">
+        <h2>Онлайн-бронь столов</h2>
+        <p>Два способа: отправьте форму или напишите нам в Telegram.</p>
+      </div>
+
+      <div class="reserve">
+        <!-- LEFT: NETLIFY FORM + TG -->
+        <div class="card form">
+          <h3 style="margin:0;">Заявка на бронь</h3>
+          <p class="muted" style="margin:8px 0 0; line-height:1.6;">
+            Обычно отвечаем в течение <b>5–10 минут</b> в рабочее время.
+          </p>
+
+          <form name="reservation"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                class="fields"
+                action="C:/Users/Rina/Desktop/site/thank-you.html">
+
+            <input type="hidden" name="form-name" value="reservation">
+            <p style="display:none;">
+              <label>Не заполнять: <input name="bot-field"></label>
+            </p>
+
+            <div class="field">
+              <label for="r_name">Имя</label>
+              <input id="r_name" name="name" autocomplete="name" placeholder="Например: Анна" required />
+            </div>
+
+            <div class="field">
+              <label for="r_phone">Телефон</label>
+              <input id="r_phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required />
+            </div>
+
+            <div class="field">
+              <label for="r_date">Дата</label>
+              <input id="r_date" name="date" type="date" />
+            </div>
+
+            <div class="field">
+              <label for="r_time">Время</label>
+              <input id="r_time" name="time" type="time" />
+            </div>
+
+            <div class="field">
+              <label for="r_guests">Гостей</label>
+              <select id="r_guests" name="guests">
+                <option>1</option><option selected>2</option><option>3</option><option>4</option>
+                <option>5</option><option>6</option><option>7</option><option>8</option><option>9+</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="r_place">Пожелания</label>
+              <select id="r_place" name="place">
+                <option value="Любое" selected>Любое место</option>
+                <option value="У окна">У окна</option>
+                <option value="У бара">У бара</option>
+                <option value="Тихий стол">Тихий стол</option>
+                <option value="Праздник">Праздник/день рождения</option>
+              </select>
+            </div>
+
+            <div class="field" style="grid-column:1/-1;">
+              <label for="r_comment">Комментарий</label>
+              <textarea id="r_comment" name="comment" placeholder="Например: детский стул / аллергия / хотим поздравить"></textarea>
+            </div>
+
+            <div class="form-actions" style="grid-column:1/-1;">
+              <button class="btn primary" type="submit">
+                Отправить заявку (форма)
+              </button>
+
+              <a class="btn ghost" id="tgLink"
+                 href="https://t.me/Nu_et_ya"
+                 target="_blank"
+                 rel="noopener">
+                Написать в Telegram
+              </a>
+
+              <a class="btn ghost" href="tel:+73515551111">
+                Позвонить
+              </a>
+            </div>
+
+            <p class="note" style="grid-column:1/-1;">
+              Кнопка Telegram откроет чат с автозаполненным текстом — вам останется только нажать «Отправить».
+            </p>
+          </form>
+        </div>
+
+        <!-- RIGHT: INFO -->
+        <div class="card">
+          <div style="padding:18px;">
+            <h3 style="margin:0;">Как это работает</h3>
+            <p class="muted" style="margin:8px 0 0; line-height:1.65;">
+              <b>Форма:</b> ваша заявка сохранится в специальном сервисе. <br/>
+              <b>Telegram:</b> ваша заявка перенаправится в @Nu_et_ya с уже заполненными данными (дата, время, гости).
+            </p>
+
+            <div class="sep"></div>
+
+            <div class="grid-2">
+              <div class="card pad" style="background: rgba(255,255,255,.03); box-shadow:none;">
+                <strong>Адрес</strong>
+                <div class="muted" style="margin-top:6px; line-height:1.5;">
+                  Челябинск, ул. Братьев Кашириных, 111
+                </div>
+              </div>
+              <div class="card pad" style="background: rgba(255,255,255,.03); box-shadow:none;">
+                <strong>Время работы</strong>
+                <div class="muted" style="margin-top:6px; line-height:1.5;">
+                  Пн–Чт 12:00–23:00<br/>Пт–Сб 12:00–01:00<br/>Вс 13:00–23:00
+                </div>
+              </div>
+            </div>
+
+            <div class="sep"></div>
+
+            <div class="card" style="border-radius: 18px; overflow:hidden;">
+              <img alt="Блюда ресторана" loading="lazy"
+                   src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1400&q=80"
+                   style="height:220px; width:100%; object-fit:cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP + CONTACTS -->
+  <section id="contacts" class="anchor">
+    <div class="container">
+      <div class="section-head">
+        <h2>Контакты и карта</h2>
+  
+      </div>
+
+      <div class="card map-wrap">
+        <div class="map-head">
+          <div>
+            <strong style="display:block;">BRATVA • ресторан & бар</strong>
+            <span class="muted" style="display:block; margin-top:6px;">
+              Челябинск, Братьев Кашириных, 111 • +7 (351) 555-11-11
+            </span>
+          </div>
+
+          <div class="map-switch" aria-label="Переключение карты">
+            <button class="tab active" id="googleBtn" type="button">Google</button>
+            <button class="tab" id="yandexBtn" type="button">Яндекс</button>
+          </div>
+        </div>
+
+        <!-- По умолчанию Google -->
+        <iframe id="mapFrame" class="map" loading="lazy" allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=%D0%A7%D0%B5%D0%BB%D1%8F%D0%B1%D0%B8%D0%BD%D1%81%D0%BA,%20%D0%91%D1%80%D0%B0%D1%82%D1%8C%D0%B5%D0%B2%20%D0%9A%D0%B0%D1%88%D0%B8%D1%80%D0%B8%D0%BD%D1%8B%D1%85,%20111&output=embed">
+        </iframe>
+      </div>
+
+      <div class="sep"></div>
+
+      <div class="grid-3">
+        <div class="card pad">
+          <strong>Телефон</strong>
+          <div class="muted" style="margin-top:6px;">+7 (351) 555-11-11</div>
+          <div style="margin-top:12px;">
+            <a class="pill" href="tel:+73515551111">Позвонить</a>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <strong>Соцсети</strong>
+          <div class="muted" style="margin-top:6px;">Instagram / VK / Telegram (вставьте свои ссылки)</div>
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="pill" href="#" onclick="return false;">Instagram</a>
+            <a class="pill" href="#" onclick="return false;">VK</a>
+            <a class="pill" href="#" onclick="return false;">Telegram</a>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <strong>Для мероприятий</strong>
+          <div class="muted" style="margin-top:6px; line-height:1.5;">
+            Дни рождения • корпоративы • камерные свадьбы<br/>
+            Подбор меню и депозита — по запросу.
+          </div>
+          <div style="margin-top:12px;">
+            <a class="pill primary" href="#reserve">Оставить заявку</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div class
+
+="logo" aria-hidden="true" style="width:36px;height:36px;">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 19c2.4 2.7 7 4 12.3 3.1 2.1-.4 3.7-2 3.7-4.2 0-1.8-.8-3.5-2.5-4.8-2.1-1.6-5.1-2.6-8.8-2.6-3.4 0-5.8.7-7.2 1.7-1.6 1.2-1.7 4.1 0 6.8Z" fill="#ffcc66" opacity=".95"/>
+                <path d="M8.2 10.4C9 6.7 11.8 4 16.3 4 21 4 24 7.6 24 12.2c0 2.2-.8 4-2 5.2.3-5-3.3-8-7.8-8-2.7 0-5.1.7-6.3 1Z" fill="#0b0f1a" opacity=".9"/>
+              </svg>
+            </div>
+            <div>
+              <strong style="font-family:'Playfair Display',serif; letter-spacing:.6px;">BRATVA</strong>
+              <div class="muted" style="margin-top:2px; font-size:12px;">ресторан & бар • Челябинск</div>
+            </div>
+          </div>
+
+          <p class="fine" style="margin:14px 0 0;">
+            Авторская кухня, стейки и паста, морепродукты и барная карта с классикой и фирменными твистами.
+            Забронируйте стол за 30 секунд — заявка уйдёт в Telegram.
+          </p>
+
+          <div class="sep"></div>
+
+          <div class="fine">
+            Адрес: Челябинск, ул. Братьев Кашириных, 111<br/>
+            Тел.: +7 (351) 555-11-11<br/>
+            Email: hello@bratva-rest.ru
+          </div>
+        </div>
+
+        <div class="contacts">
+          <a class="pill primary" href="#reserve">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 3v3M17 3v3M4 8h16M6 12h4m-4 4h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            Забронировать стол
+          </a>
+          <a class="pill" href="tel:+73515551111">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.7c1.7 3.2 3.9 5.5 7.1 7.1l2.4-2.4c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.8 22 2 13.2 2 2c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.2 1.1L6.6 10.7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            Позвонить
+          </a>
+          <a class="pill" href="#contacts">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11Z" stroke="currentColor" stroke-width="2"/><path d="M12 10.5a2.5 2.5 0 1 0 0-.01Z" stroke="currentColor" stroke-width="2"/></svg>
+            Построить маршрут
+          </a>
+          <div class="fine" style="text-align:right;">
+            Пн–Чт: 12:00–23:00<br/>
+            Пт–Сб: 12:00–01:00<br/>
+            Вс: 13:00–23:00
+          </div>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+
+      <div class="fine" style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+        <span>© <span id="year"></span> BRATVA • ресторан & бар</span>
+        
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /********************
+     * CONFIG (PROD)
+     * ВАЖНО: токен в фронте — небезопасно. Для продакшена вынести отправку на сервер.
+     ********************/
+    const TG_USERNAME = "Nu_et_ya";
+
+    /********************
+     * DATA: MENU + BAR
+     ********************/
+    const menuData = {
+      starters: [
+        { title:"Тартар из говядины", desc:"Каперсы, пармезан, горчица, чипсы из чиабатты.", grams:"170 г", tag:"хит", price:"690 ₽",
+          img:"https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=600&q=80" },
+        { title:"Брускетта с лососем", desc:"Сливочный сыр, огурец, лайм, укропное масло.", grams:"160 г", tag:"лёгкое", price:"590 ₽",
+          img:"https://images.unsplash.com/photo-1540914124281-342587941389?auto=format&fit=crop&w=600&q=80" },
+        { title:"Сырная тарелка", desc:"4 сыра, мёд, орехи, виноград, крекер.", grams:"240 г", tag:"к вину", price:"890 ₽",
+          img:"https://i.pinimg.com/736x/c5/2b/99/c52b9958ab25e7042d278a37fb5670c3.jpg" },
+        { title:"Креветки темпура", desc:"Хрустящая панировка, соус спайси-майо, лайм.", grams:"200 г", tag:"new", price:"750 ₽",
+          img:"https://i.pinimg.com/736x/0f/7a/10/0f7a10b7c2f5f800c5f04e0a8cb75738.jpg" }
+      ],
+      salads: [
+        { title:"Цезарь с курицей", desc:"Романо, пармезан, соус цезарь, крутоны.", grams:"260 г", tag:"классика", price:"620 ₽",
+          img:"https://images.unsplash.com/photo-1551892374-ecf8754cf8f3?auto=format&fit=crop&w=600&q=80" },
+        { title:"Салат с ростбифом", desc:"Микс салатов, томаты, кунжут, соус демиглас.", grams:"240 г", tag:"сытно", price:"780 ₽",
+          img:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" },
+        { title:"Греческий", desc:"Фета, оливки, огурец, томаты, орегано.", grams:"260 г", tag:"fresh", price:"560 ₽",
+          img:"https://images.unsplash.com/photo-1568600891621-50b1f0d1a1e4?auto=format&fit=crop&w=600&q=80" },
+        { title:"Салат с креветками", desc:"Авокадо, цитрус, микс салатов, соус манго.", grams:"220 г", tag:"топ", price:"820 ₽",
+          img:"https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=600&q=80" }
+      ],
+      hot: [
+        { title:"Томлёные щёчки", desc:"Пюре, соус демиглас, маринованный лук.", grams:"320 г", tag:"comfort", price:"890 ₽",
+          img:"https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80" },
+        { title:"Лосось на гриле", desc:"Овощи, лимон, соус бер-блан.", grams:"260 г", tag:"легко", price:"990 ₽",
+          img:"https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?auto=format&fit=crop&w=600&q=80" },
+        { title:"Курица в сливочном соусе", desc:"Грибы, картофель, пармезан.", grams:"330 г", tag:"домашнее", price:"720 ₽",
+          img:"https://images.unsplash.com/photo-1604909053275-2e03f3e0f4a8?auto=format&fit=crop&w=600&q=80" },
+        { title:"Ризотто с грибами", desc:"Белые грибы, трюфельное масло, пармезан.", grams:"280 г", tag:"италия", price:"740 ₽",
+          img:"https://images.unsplash.com/photo-1625944525533-473f1d2f53fd?auto=format&fit=crop&w=600&q=80" }
+      ],
+      grill: [
+        { title:"Рибай", desc:"Подача: соль, перец, травяное масло, соус на выбор.", grams:"300 г", tag:"хит", price:"1890 ₽",
+          img:"https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80" },
+        { title:"Стриплойн", desc:"Стабильная мраморность, идеален medium.", grams:"300 г", tag:"стейк", price:"1690 ₽",
+          img:"https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=80" },
+        { title:"Креветки гриль", desc:"Чеснок, масло, лайм, зелень.", grams:"220 г", tag:"sea", price:"980 ₽",
+          img:"https://images.unsplash.com/photo-1516685018646-549d72a58f6d?auto=format&fit=crop&w=600&q=80" },
+        { title:"Овощи на огне", desc:"Перец, цукини, баклажан, соус ромеско.", grams:"260 г", tag:"veggie", price:"520 ₽",
+          img:"https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=600&q=80" }
+      ],
+      pasta: [
+        { title:"Паста карбонара", desc:"Гуанчиале, сливочно-яичный соус, пармезан.", grams:"320 г", tag:"классика", price:"690 ₽",
+          img:"https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?auto=format&fit=crop&w=600&q=80" },
+        { title:"Паста с креветками", desc:"Сливочный соус, чеснок, пармезан, лайм.", grams:"320 г", tag:"sea", price:"840 ₽",
+          img:"https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=600&q=80" },
+        { title:"Альфредо с курицей", desc:"Сливочный соус, грибы, пармезан.", grams:"340 г", tag:"сытно", price:"760 ₽",
+          img:"https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=600&q=80" },
+        { title:"Паста арабьята", desc:"Острая томатная база, базилик, пармезан.", grams:"320 г", tag:"остро", price:"640 ₽",
+          img:"https://images.unsplash.com/photo-1506354666786-959d6d497f1a?auto=format&fit=crop&w=600&q=80" }
+      ],
+      dessert: [
+        { title:"Тирамису", desc:"Классика: кофе, маскарпоне, какао.", grams:"160 г", tag:"top", price:"450 ₽",
+          img:"https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=80" },
+        { title:"Чизкейк", desc:"Нежный крем, ягодный соус.", grams:"170 г", tag:"хит", price:"470 ₽",
+          img:"https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=80" },
+        { title:"Шоколадный фондан", desc:"Тёплый шоколад, мороженое, соль.", grams:"180 г", tag:"wow", price:"520 ₽",
+          img:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80" },
+        { title:"Сорбет манго", desc:"Лёгкий десерт, свежесть и аромат.", grams:"120 г", tag:"light", price:"320 ₽",
+          img:"https://images.unsplash.com/photo-1505253213348-ce5d3f0e0c5b?auto=format&fit=crop&w=600&q=80" }
+      ]
+    };
+
+    const barData = {
+      signature: [
+        { title:"BRATVA Negroni", desc:"Джин, кампари, вермут, апельсиновая цедра.", grams:"120 мл", tag:"фирм.", price:"650 ₽",
+          img:"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80" },
+        { title:"Bloody Smoke", desc:"Томат, специи, водка, дымная нота.", grams:"250 мл", tag:"остро", price:"590 ₽",
+          img:"https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=600&q=80" },
+        { title:"Apple Highball", desc:"Виски, яблоко, содовая, лимон.", grams:"300 мл", tag:"fresh", price:"620 ₽",
+          img:"https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=600&q=80" },
+        { title:"Gold Espresso", desc:"Водка, эспрессо, кофейный ликёр, ваниль.", grams:"120 мл", tag:"dessert", price:"650 ₽",
+          img:"https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?auto=format&fit=crop&w=600&q=80" }
+      ],
+      classic: [
+        { title:"Old Fashioned", desc:"Бурбон, биттер, сахар, апельсин.", grams:"90 мл", tag:"classic", price:"690 ₽",
+          img:"https://images.unsplash.com/photo-1564759224907-65b945ff0f9d?auto=format&fit=crop&w=600&q=80" },
+        { title:"Whiskey Sour", desc:"Виски, лимон, сироп, белок (по желанию).", grams:"160 мл", tag:"кисло", price:"590 ₽",
+          img:"https://images.unsplash.com/photo-1575444758702-4a6b9222336e?auto=format&fit=crop&w=600&q=80" },
+        { title:"Margarita", desc:"Текила, апельсиновый ликёр, лайм.", grams:"120 мл", tag:"кисло", price:"590 ₽",
+          img:"https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" },
+        { title:"Gin Tonic", desc:"Джин, тоник, лайм/огурец.", grams:"250 мл", tag:"fresh", price:"520 ₽",
+          img:"https://images.unsplash.com/photo-1582571352036-448f7928eca2?auto=format&fit=crop&w=600&q=80" }
+      ],
+      wine: [
+        { title:"Игристое (бокал)", desc:"Сухое, освежающее.", grams:"125 мл", tag:"spark", price:"490 ₽",
+          img:"https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80" },
+        { title:"Совиньон Блан", desc:"Цитрус, травы, свежесть.", grams:"150 мл", tag:"white", price:"520 ₽",
+          img:"https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?auto=format&fit=crop&w=600&q=80" },
+        { title:"Пино Нуар", desc:"Вишня, специи, бархат.", grams:"150 мл", tag:"red", price:"590 ₽",
+          img:"https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?auto=format&fit=crop&w=600&q=80" },
+        { title:"Шардоне (бут.)", desc:"Бочка, масло, ваниль (в зависимости от дома).", grams:"750 мл", tag:"bottle", price:"2490 ₽",
+          img:"https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?auto=format&fit=crop&w=600&q=80" }
+      ],
+      strong: [
+        { title:"Виски", desc:"Шотландия/Ирландия/Бурбон — на выбор.", grams:"50 мл", tag:"aged", price:"450 ₽",
+          img:"https://images.unsplash.com/photo-1514361892635-eae31f6591b2?auto=format&fit=crop&w=600&q=80" },
+        { title:"Ром", desc:"Светлый/тёмный, тростниковый профиль.", grams:"50 мл", tag:"rum", price:"420 ₽",
+          img:"https://images.unsplash.com/photo-1514361892635-eae31f6591b2?auto=format&fit=crop&w=600&q=80" },
+        { title:"Текила", desc:"Blanco/Reposado — лимон и соль по желанию.", grams:"50 мл", tag:"agave", price:"420 ₽",
+          img:"https://images.unsplash.com/photo-1514361892635-eae31f6591b2?auto=format&fit=crop&w=600&q=80" },
+        { title:"Джин", desc:"Сухой, цитрусовый, травяной.", grams:"50 мл", tag:"dry", price:"420 ₽",
+          img:"https://images.unsplash.com/photo-1514361892635-eae31f6591b2?auto=format&fit=crop&w=600&q=80" }
+      ],
+      na: [
+        { title:"Домашний лимонад", desc:"Цитрус, ягоды или огурец — уточняйте.", grams:"400 мл", tag:"fresh", price:"320 ₽",
+          img:"https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=600&q=80" },
+        { title:"Морс ягодный", desc:"Клюква/смородина, лёгкая кислинка.", grams:"300 мл", tag:"berry", price:"240 ₽",
+          img:"https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=600&q=80" },
+        { title:"Cold Brew", desc:"Холодный кофе, мягкий вкус.", grams:"250 мл", tag:"coffee", price:"290 ₽",
+          img:"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80" },
+        { title:"0% Gin Tonic", desc:"Безалк. джин, тоник, лайм.", grams:"250 мл", tag:"0%", price:"390 ₽",
+          img:"https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=600&q=80" }
+      ]
+    };
+
+    /********************
+     * UI HELPERS
+     ********************/
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => Array.from(document.querySelectorAll(s));
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    function renderCards(list, targetId){
+      const el = document.getElementById(targetId);
+      el.innerHTML = list.map(item => `
+        <div class="item">
+          <div class="thumb"><img alt="${escapeHtml(item.title)}" loading="lazy" src="${item.img}"></div>
+          <div style="width:100%;">
+            <h4>${escapeHtml(item.title)}</h4>
+            <p>${escapeHtml(item.desc)}</p>
+            <div class="meta">
+              <span class="tag">${escapeHtml(item.grams)}</span>
+              <span class="tag">${escapeHtml(item.tag)}</span>
+              <span class="price">${escapeHtml(item.price)}</span>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    /********************
+     * MENU TABS
+     ********************/
+    function setActiveTab(tabs, activeEl){
+      tabs.forEach(t => {
+        t.classList.toggle("active", t === activeEl);
+        t.setAttribute("aria-selected", t === activeEl ? "true" : "false");
+      });
+    }
+
+    function initMenu(){
+      renderCards(menuData.starters, "menuGrid");
+      const tabs = $$("#menu .tab");
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          setActiveTab(tabs, tab);
+          const key = tab.dataset.menu;
+          renderCards(menuData[key], "menuGrid");
+        });
+      });
+    }
+
+    function initBar(){
+      renderCards(barData.signature, "barGrid");
+      const tabs = $$("#bar .tab");
+      tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          setActiveTab(tabs, tab);
+          const key = tab.dataset.bar;
+          renderCards(barData[key], "barGrid");
+        });
+      });
+    }
+
+    /********************
+     * MOBILE MENU
+     ********************/
+    function initMobileNav(){
+      const btn = $("#burgerBtn");
+      const panel = $("#mobilePanel");
+      if(!btn || !panel) return;
+
+      btn.addEventListener("click", () => {
+        const opened = panel.style.display === "block";
+        panel.style.display = opened ? "none" : "block";
+        btn.setAttribute("aria-expanded", opened ? "false" : "true");
+      });
+
+      // close on click
+      panel.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => { panel.style.display = "none"; });
+      });
+    }
+
+    /********************
+     * MAP SWITCH
+     ********************/
+    function initMap(){
+      const mapFrame = $("#mapFrame");
+      const googleBtn = $("#googleBtn");
+      const yandexBtn = $("#yandexBtn");
+      if(!mapFrame || !googleBtn || !yandexBtn) return;
+
+      const gUrl = "https://www.google.com/maps?q=%D0%A7%D0%B5%D0%BB%D1%8F%D0%B1%D0%B8%D0%BD%D1%81%D0%BA,%20%D0%91%D1%80%D0%B0%D1%82%D1%8C%D0%B5%D0%B2%20%D0%9A%D0%B0%D1%88%D0%B8%D1%80%D0%B8%D0%BD%D1%8B%D1%85,%20111&output=embed";
+      const yUrl = "https://yandex.ru/map-widget/v1/?text=%D0%A7%D0%B5%D0%BB%D1%8F%D0%B1%D0%B8%D0%BD%D1%81%D0%BA%2C%20%D0%91%D1%80%D0%B0%D1%82%D1%8C%D0%B5%D0%B2%20%D0%9A%D0%B0%D1%88%D0%B8%D1%80%D0%B8%D0%BD%D1%8B%D1%85%2C%20111&z=16";
+
+      function activate(btn){
+        [googleBtn, yandexBtn].forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      }
+
+      googleBtn.addEventListener("click", () => { activate(googleBtn); mapFrame.src = gUrl; });
+      yandexBtn.addEventListener("click", () => { activate(yandexBtn); mapFrame.src = yUrl; });
+    }
+
+    /********************
+     * RESERVATION: Netlify form + Telegram prefill
+     ********************/
+    function sanitizePhone(p){
+      return String(p || "").trim().replace(/[^\d+]/g, "");
+    }
+
+    function buildTelegramText(){
+      const name   = $("#r_name")?.value.trim() || "";
+      const phone  = sanitizePhone($("#r_phone")?.value);
+      const date   = $("#r_date")?.value || "";
+      const time   = $("#r_time")?.value || "";
+      const guests = $("#r_guests")?.value || "";
+      const place  = $("#r_place")?.value || "";
+      const comm   = $("#r_comment")?.value.trim() || "";
+
+      const prettyDate = date ? date.split("-").reverse().join(".") : "не указано";
+      const prettyTime = time || "не указано";
+
+      // Коротко и по делу — так админ быстрее подтверждает
+      return [
+        "Здравствуйте! Хочу забронировать стол в BRATVA.",
+        `Имя: ${name || "—"}`,
+        `Телефон: ${phone || "—"}`,
+        `Дата: ${prettyDate}`,
+        `Время: ${prettyTime}`,
+        `Гостей: ${guests || "—"}`,
+        `Пожелания: ${place || "—"}`,
+        `Комментарий: ${comm || "—"}`
+      ].join("\n");
+    }
+
+    function updateTelegramLink(){
+      const a = $("#tgLink");
+      if(!a) return;
+
+      const text = buildTelegramText();
+      // Универсальная ссылка (работает в браузере и на мобилке)
+      const url = `https://t.me/${TG_USERNAME}?text=${encodeURIComponent(text)}`;
+      a.href = url;
+    }
+
+    function initReservationDual(){
+      // обновлять ссылку при вводе
+      ["#r_name","#r_phone","#r_date","#r_time","#r_guests","#r_place","#r_comment"].forEach(sel => {
+        const el = $(sel);
+        if(!el) return;
+        el.addEventListener("input", updateTelegramLink);
+        el.addEventListener("change", updateTelegramLink);
+      });
+
+      // и при клике — на всякий
+      const a = $("#tgLink");
+      if(a) a.addEventListener("click", updateTelegramLink);
+    }
+
+
+    /********************
+     * INIT
+     ********************/
+    function initDefaults(){
+      $("#year").textContent = new Date().getFullYear();
+
+      // date default: today
+      const d = new Date();
+      const pad = (n) => String(n).padStart(2,"0");
+      const today = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+      const dateEl = $("#r_date");
+      if(dateEl && !dateEl.value) dateEl.value = today;
+
+      // time default: +2 hours rounded to 30
+      const t = new Date(Date.now() + 2*60*60*1000);
+      const mins = t.getMinutes();
+      const rounded = mins < 15 ? 0 : mins < 45 ? 30 : 0;
+      if(mins >= 45) t.setHours(t.getHours()+1);
+      t.setMinutes(rounded);
+      const timeEl = $("#r_time");
+      if(timeEl && !timeEl.value) timeEl.value = `${pad(t.getHours())}:${pad(t.getMinutes())}`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initDefaults();
+      initMobileNav();
+      initMenu();
+      initBar();
+      initMap();
+      initReservationDual();
+
+      // smooth anchors (optional niceness)
+      $$('a[href^="#"]').forEach(a => {
+        a.addEventListener("click", (e) => {
+          const id = a.getAttribute("href");
+          if(!id || id === "#") return;
+          const target = document.querySelector(id);
+          if(!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
